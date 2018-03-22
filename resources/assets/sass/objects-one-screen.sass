@@ -1,0 +1,135 @@
+.animate
+    transition: all .3s
+
+.after-clearfix
+    &:after
+        display: table
+        overflow: hidden
+        clear: both
+        content: ''
+
+.contact-us-btn
+    border: 1px solid #fff
+    border-radius: 6px
+    color: #fff
+    text-transform: uppercase
+    font-size: 0.75em
+    font-weight: 600
+    padding: 12px 39px
+
+.btn-no-bg
+    border: 1px solid #fff
+    background: transparent
+    font-size: .8em
+    text-transform: uppercase
+    color: #fff
+    display: inline-block
+    &:hover
+        background: $big-main-button-color
+        border-color: $big-main-button-color
+
+.btn
+    display: inline-block
+    text-transform: uppercase
+    color: #fff
+    border-radius: 6px
+    padding: 12px 32px
+    font-weight: 600
+    text-align: center
+    margin: 0 0 8px
+    min-width: 230px
+    box-sizing: border-box
+    font-family: "Lato", sans-serif
+    cursor: pointer
+    @extend  .animate
+    @media screen and (max-width: $make-phone)
+        padding: 12px 20px
+        min-width: 180px
+.btn-main-color
+    border: 1px solid $big-main-button-color
+    background: $big-main-button-color
+    font-size: .8em
+    text-transform: uppercase
+    color: #fff
+    display: inline-block
+    &:hover
+        background: #fff
+        color: $big-main-button-color
+.btn-main-color.with-border
+    border: 1px solid #fff
+    &:hover
+        border-color: $big-main-button-color
+.btn-main-color.inverse
+    background: #fff
+    color: $big-main-button-color
+    &:hover
+        background: $big-main-button-color
+        color: #fff
+.btn-main-color.inverse.with-border
+    border: 1px solid $big-main-button-color
+    &:hover
+        border-color: #fff
+.btn-main-color.transparent
+    background: transparent
+    &:hover
+        background: $big-main-button-color
+        color: #fff
+.btn-blue-color
+    background: transparent
+    color: $blue
+    border: 1px solid $blue
+    &:hover
+        background: $blue
+        color: #fff
+.btn-blue
+    background: $blue
+    color: #fff
+    border: 1px solid $blue
+    &:hover
+        background: transparent
+        color: $blue
+.btn-review
+    display: inline-block
+    background: $blue
+    color: #fff
+    font-size: .7em
+    line-height: 1.5em
+    border: 1px solid $blue
+    padding: 3px 8px 4px
+    border-radius: 15px
+    min-width: 165px
+    text-align: center
+    margin: 0 2px 15px
+    box-sizing: border-box
+    position: relative
+    @extend .animate
+    &.no-bg
+        color: $blue
+        background: transparent
+        .icon
+            fill: $blue
+        .icon.big
+            width: 24px
+            height: 18px
+        &:hover
+            color: #fff
+            background: $blue
+            .icon
+                fill: #fff
+    .icon
+        display: none
+        position: absolute
+        left: 10px
+        top: 50%
+        transform: translateY(-50%)
+        fill: #fff
+        @extend .animate
+    .icon-case-svg
+        font-size: 1.126rem
+    .icon-letter-svg
+        font-size: 1.315rem
+    &:hover
+        color: $blue
+        background: transparent
+        .icon
+            fill: $blue

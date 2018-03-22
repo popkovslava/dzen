@@ -1,0 +1,24 @@
+@mixin animateText($name, $duration, $iteration, $direction, $timing-function, $delay, $fill-mode)
+    animation-duration: $duration
+    animation-iteration-count: $iteration
+    animation-name: $name
+    animation-direction: $direction
+    animation-timing-function: $timing-function
+    animation-delay: $delay
+    animation-fill-mode: $fill-mode
+
+@mixin keyframes($animationName)
+  @keyframes #{$animationName}
+      @content
+
+@mixin moveInTextAnimation
+    @include animateText(moveInTextAnimation, 8s, 1, normal, linear, 0, forwards)
+
+@mixin animate($name, $duration, $iteration, $direction, $timing-function, $delay, $fill-mode)
+    animation-duration: $duration
+    animation-iteration-count: $iteration
+    animation-name: $name
+    animation-direction: $direction
+    animation-timing-function: $timing-function
+    animation-delay: $delay
+    animation-fill-mode: $fill-mode

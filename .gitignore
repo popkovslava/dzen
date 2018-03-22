@@ -1,0 +1,27 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/.vagrant
+/_ide_helper_models.php
+/_ide_helper.php
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+
+composer.phar
+# If you do not need build assets on production - comment out the lines below
+/public/mix-manifest.json
+/public/js
+/public/css
+/public/img
+/public/fonts
+# AND If you do not need build assets on production - comment out the lines below
+/public/packages/sleepingowl/customs
+/public/robots.txt
+/resources/assets/img/sprite
