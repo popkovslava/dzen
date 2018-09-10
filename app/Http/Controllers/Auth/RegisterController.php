@@ -36,7 +36,12 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
+    }
+
+    public function showRegistrationForm()
+    {
+        return redirect('admin.dashboard');
     }
 
     /**
@@ -58,7 +63,6 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
      */
     protected function create(array $data)
     {

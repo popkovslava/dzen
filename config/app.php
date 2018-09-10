@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -66,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Minsk',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -178,30 +178,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
 
-        App\Providers\SmsServiceProvider::class,
-        App\Providers\GeoIpProvider::class,
 
-        /**
-         * SleepingOwl Service Provider
-         */
-        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
-        /**
-         * Intervention Image
-         */
-        Intervention\Image\ImageServiceProviderLaravel5::class,
-
-        Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        /**
-         * Filtrated models
-         */
-        EloquentFilter\ServiceProvider::class,
-        /**
-         * Laravel HTMLMin
-         */
-        HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
     ],
 
     /*
@@ -250,14 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-
-       // 'Image' => Intervention\Image\Facades\Image::class,
-
-        'Form' => Collective\Html\FormFacade::class,
-        'HTML' => Collective\Html\HtmlFacade::class,
-        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
-       // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

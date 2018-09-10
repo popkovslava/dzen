@@ -13,18 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/stack', 'Api\StackController@index', ['as' => 'api.stack.index']);
-Route::get('/work', 'Api\WorkController@index', ['as' => 'api.work.index']);
-Route::get('/stack-category', 'Api\StackCategoryController@index', ['as' => 'api.stack-category.index']);
-Route::get('/page', 'Api\PageController@index', ['as' => 'api.page.index']);
-
-Route::resource('upload', 'UploadController', ['only' => [
-        'store', 'destroy'
-    ]
-]);

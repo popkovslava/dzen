@@ -10,16 +10,17 @@ class UsersSectionModelPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user, $ability, Users $section, User $item = null)
+    /**
+     * @param User   $user
+     * @param string $ability
+     *
+     * @return bool
+     */
+    public function before(User $user, $ability, Users $item)
     {
         if ($user->isSuperAdmin()) {
-            /*if ($ability != 'display' && $ability != 'create' && !is_null($item) && $item->id <= 2) {
-                return false;
-            }*/
-
             return true;
         }
-        return false;
     }
 
     public function display(User $user, Users $section, User $item)
@@ -27,60 +28,53 @@ class UsersSectionModelPolicy
         return true;
     }
 
-    public function edit(User $user, Users $section, User $item)
+    /**
+     * @param User $user
+     * @param User $item
+     *
+     * @return bool
+     */
+    public function create(User $user, Users $item)
     {
-        // return $item->id === $user->id || $user->id < 2;
-        return true;
+        if ($user->isSuperAdmin()) {
+            return $item->isAutoredBy($user);
+        }
     }
 
     /**
-     * Determine whether the user can view the model.
+     * @param User $user
+     * @param User $item
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\User  $model
-     * @return mixed
+     * @return bool
      */
-    public function view(User $user, Users $model, User $item)
+    public function edit(User $user, Users $item)
     {
-        // return $item->id === $user->id || $item->id < 2;
-        return true;
+       return true;
     }
 
     /**
-     * Determine whether the user can create models.
+     * @param User $user
+     * @param User $item
      *
-     * @param  \App\Models\User  $user
-     * @return mixed
+     * @return bool
      */
-    public function create(User $user)
+    public function delete(User $user, Users $item)
     {
-        // return $user->id < 2;
-        return true;
+        if ($user->isSuperAdmin()) {
+            return $item->isAutoredBy($user);
+        }
     }
 
     /**
-     * Determine whether the user can update the model.
+     * @param User $user
+     * @param User $item
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\User  $model
-     * @return mixed
+     * @return bool
      */
-    public function update(User $user, Users $model)
+    public function restore(User $user, Users $item)
     {
-        // return $item->id === $user->id || $user->id < 2;
-        return true;
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\User  $model
-     * @return mixed
-     */
-    public function delete(User $user, Users $section, User $item)
-    {
-        // return $item->id === $user->id || $user->id < 2;
-        return true;
+        if ($user->isSuperAdmin()) {
+            return $item->isAutoredBy($user);
+        }
     }
 }

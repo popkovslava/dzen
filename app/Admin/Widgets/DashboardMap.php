@@ -15,7 +15,7 @@ class DashboardMap extends Widget
      */
     public function toHtml()
     {
-        return view('admin.dashboard');
+        //return view('admin.dashboard');
     }
 
     /**
