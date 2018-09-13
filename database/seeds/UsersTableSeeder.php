@@ -15,16 +15,21 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // User::truncate();
+        // Role::truncate();
+        // DB::table('role_user')->truncate();
+        // Permission::truncate();
+
         $adminUser = User::create([
             'name'     => 'admin',
-            'email'    => 'admin@mail.ru',
-            'password' => '123456',
+            'email'    => 'admin@dzensoft.com',
+            'password' => 'WNtwbQ72aZPY',
         ]);
 
         $managerUser = User::create([
             'name'     => 'manager',
-            'email'    => 'manager@mail.ru',
-            'password' => '123456',
+            'email'    => 'manager@dzensoft.com',
+            'password' => 'UjpJmvv3Ca',
         ]);
 
         $adminRole = Role::create([

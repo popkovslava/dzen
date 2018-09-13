@@ -2,8 +2,9 @@
 
 namespace App\Admin\Policies;
 
+use App\Admin\Http\Sections\Roles;
 use App\Models\User;
-
+use App\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RolesSectionModelPolicy
@@ -25,6 +26,7 @@ class RolesSectionModelPolicy
             if ($ability != 'display' && $ability != 'create' && $item->id <= 2) {
                 return false;
             }
+
             return true;
         }
     }
